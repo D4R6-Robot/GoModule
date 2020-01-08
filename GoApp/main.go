@@ -1,26 +1,17 @@
 package main
 
 import (
-	dblib "malwaresystem/dblib"
+	"malwaresystem/httplib"
+	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
 func main() {
-	/*
-		r := mux.NewRouter()
 
-		r.HandleFunc("/books/{title}/page/{page}", func(w http.ResponseWriter, r *http.Request) {
-			vars := mux.Vars(r)
-			title := vars["title"]
-			page := vars["page"]
+	r := mux.NewRouter()
 
-			fmt.Fprintf(w, "You've requested the book: %s on page %s\n", title, page)
-		})
+	r.HandleFunc("/list", httplib.ListHandler)
 
-		http.ListenAndServe(":80", r)
-	*/
-	cDBInfo := dblib.PostSQLDB{}
-	cDBInfo.InitDbInfo()
-	cDBInfo.ConnectDB()
-	cDBInfo.SelectDB()
-	cDBInfo.CloseDB()
+	http.ListenAndServe(":8888", r)
 }
