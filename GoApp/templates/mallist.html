@@ -1,0 +1,11 @@
+<html>
+<head>
+    <title>Malicious List</title>
+</head>
+<body>
+{{range .}}
+    <!-- Since we are ranging over . (TicketList), the . now refers to a single Ticket within the TicketList -->
+    {{.}}
+{{end}}
+</body>
+</html>
