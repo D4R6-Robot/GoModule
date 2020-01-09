@@ -26,7 +26,10 @@ type MalwareInfo struct {
 	fileFailed       int
 }
 
-type MalwareInfoList []MalwareInfo
+// NewMalwerInfo function
+func (malData *MalwareInfo) NewMalwerInfo() *MalwareInfo {
+	return &(MalwareInfo{})
+}
 
 // GetMalIndex function
 func (malData *MalwareInfo) GetMalIndex() string {

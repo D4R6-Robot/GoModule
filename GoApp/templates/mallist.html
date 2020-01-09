@@ -3,9 +3,57 @@
     <title>Malicious List</title>
 </head>
 <body>
-{{range .}}
-    <!-- Since we are ranging over . (TicketList), the . now refers to a single Ticket within the TicketList -->
-    {{.}}
-{{end}}
+    <table border="1">
+        <th>Y</th>
+        <th>Tree</th>
+        <th>XSLCnt</th>
+        <th>JSCnt</th>
+        <th>MSFormsCnt</th>
+        <th>MacrosCnt</th>
+        <th>HTTPCnt</th>
+        <th>NtQueryKey</th>
+        <th>NtOpenKey</th>
+        <th>NtOpenFile</th>
+        <th>NtWriteFile</th>
+        <th>NtQueryValueKey</th>
+        <th>NtDelayExecution</th>
+        <th>NtCreateFile</th>
+        <th>F-Created</th>
+        <th>F-ReCreated</th>
+        <th>F-DllLoaded</th>
+        <th>F-Opened</th>
+        <th>F-Written</th>
+        <th>F-Failed</th>
+        <th>Malware</th>
+        <th>Benign</th>
+        <th>Decide</th>
+        {{range .}}
+        <tr>
+            <td>{{.Y}}</td>
+            <td>{{.ProcTree}}</td>
+            <td>{{.ProcXSLCnt}}</td>
+            <td>{{.ProcJSCnt}}</td>
+            <td>{{.ProcMSFormsCnt}}</td>
+            <td>{{.ProcMacrosCnt}}</td>
+            <td>{{.NetHTTPCnt}}</td>
+            <td>{{.NtQueryKey}}</td>
+            <td>{{.NtOpenKey}}</td>
+            <td>{{.NtOpenFile}}</td>
+            <td>{{.NtWriteFile}}</td>
+            <td>{{.NtQueryValueKey}}</td>
+            <td>{{.NtDelayExecution}}</td>
+            <td>{{.NtCreateFile}}</td>
+            <td>{{.FileCreated}}</td>
+            <td>{{.FileReCreated}}</td>
+            <td>{{.FileDllLoaded}}</td>
+            <td>{{.FileOpened}}</td>
+            <td>{{.FileWritten}}</td>
+            <td>{{.FileFailed}}</td>
+            <td><input type="checkbox" name="color" value="malware">M</td>
+            <td><input type="checkbox" name="color" value="benign">B</td>
+            <td><button type="button" onclick="alert('DB Insert')">ok</button></td>
+        </tr>
+        {{end}}
+    </table>
 </body>
 </html>
